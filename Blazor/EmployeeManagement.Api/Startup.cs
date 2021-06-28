@@ -1,3 +1,4 @@
+using EmployeeManagement.Api.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,6 +28,8 @@ namespace EmployeeManagement.Api
         public void ConfigureServices(IServiceCollection services)
         {
 
+            services.AddDbContext<AppDbContext>(options =>
+                        options.UseSqlServer(Configuration.GetConnectionString("DBConnection")));
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
