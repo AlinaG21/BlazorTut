@@ -57,8 +57,6 @@ namespace EmployeeManagement.Api
             app.UseRouting();
 
             app.UseAuthorization();
-
-            
         }
     }
 }
