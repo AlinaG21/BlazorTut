@@ -16,6 +16,7 @@ namespace EmployeeManagement.Api.Models
 
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Department> Departments { get; set; }
+        public object Employee { get; internal set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
