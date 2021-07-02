@@ -16,10 +16,12 @@ namespace EmployeeManagement.Web.Pages
         public IEnumerable<Employee> Employees { get; set; }
 
         public bool ShowFooter { get; set; } = true;
+        
+        public EventCallback<bool> OnEmployeeSelection { get; set; }
 
-        protected override async Task OnInitializedAsync()
+        protected async Task CheckBoxChanged(ChangeEventArgs e, bool IsSelected)
         {
-            Employees = (await EmployeeService.GetEmployees()).ToList();
+            await OnEmployeeSelection.InvokeAsync(IsSelected);
         }
     }
 }
