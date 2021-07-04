@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\EmployeeManagement.Models\EmployeeManagement.Models.csproj" />
+    <ProjectReference Include="..\PagimTech.Components\PagimTech.Components.csproj" />
   </ItemGroup>
 
 </Project>
