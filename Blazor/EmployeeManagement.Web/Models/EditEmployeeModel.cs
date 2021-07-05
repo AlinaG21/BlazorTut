@@ -1,14 +1,13 @@
-﻿using EmployeeManagement.Models.CustomValidators;
+﻿using EmployeeManagement.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace EmployeeManagement.Models
+namespace EmployeeManagement.Web.Models
 {
-    public class Employee
+    public class EditEmployeeModel
     {
         public int EmployeeId { get; set; }
         [Required(ErrorMessage = "FirstName must be provided")]
@@ -20,6 +19,9 @@ namespace EmployeeManagement.Models
         [EmailDomainValidator(AllowedDomain = "pragimtech.com",
             ErrorMessage = "Only PragimTech.com is allowwed")]
         public string Email { get; set; }
+        [CompareProperty("Email",
+        ErrorMessage = "Email and Confirm Email must match")]
+        public string ConfirmEmail { get; set; }
         public string ConfirmEmail { get; set; }
         public DateTime DateOfBrith { get; set; }
         public Gender Gender { get; set; }
