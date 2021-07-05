@@ -10,8 +10,8 @@ namespace EmployeeManagement.Models
     public class Employee
     {
         public int EmployeeId { get; set; }
-        [Required]
-        [StringLength(100, MinimumLength = 2)]
+        [Required(ErrorMessage = "FirstName is mandatory")]
+        [MinLength(2)]
         public string FirstName { get; set; }
         [Required]
         public string LastName { get; set; }
