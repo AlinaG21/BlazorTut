@@ -1,11 +1,10 @@
 ﻿@page "/editemployee/{id}"
-@page "/editemployee"
 
 @inherits EditEmployeeBase
 
 <EditForm Model="@EditEmployeeModel" OnValidSubmit="HandleValidSubmit">
     <ObjectGraphDataAnnotationsValidator />
-    <h3>@PageHeader</h3>
+    <h3>Edit Employee</h3>
     <hr />
     <ValidationSummary />
     <div class="form-group row">
@@ -53,14 +52,11 @@
             Department
         </label>
         <div class="col-sm-10">
-            <CustomInputSelect @bind-Value="EditEmployeeModel.DepartmentId"
-                               class="form-control">
+            <CustomInputSelect @bind-Value="EditEmployeeModel.DepartmentId" class="form-control">
                 @foreach (var dept in Departments)
                 {
-                    <option value="@dept.DepartmentId">
-                        @dept.DepartmentName
-                </option>
-            }
+                    <option value="@dept.DepartmentId">@dept.DepartmentName</option>
+                }
             </CustomInputSelect>
         </div>
     </div>
@@ -86,6 +82,8 @@
         </div>
     </div>
     @*<div class="form-group row">
+            Updating Department Name from this page does not make sense
+            This is only here to demonstrate complex model validation
             <label for="deptName" class="col-sm-2 col-form-label">
                 Department Name
             </label>
@@ -96,10 +94,4 @@
             </div>
         </div>*@
     <button class="btn btn-primary" type="submit">Submit</button>
-    @if (EditEmployeeModel.EmployeeId > 0)
-{
-    <button class="btn btn-danger" type="button" @onclick="Delete_Click">
-        Delete
-    </button>
-}
 </EditForm>
