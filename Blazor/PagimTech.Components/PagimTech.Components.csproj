@@ -1,8 +1,12 @@
-<Project Sdk="Microsoft.NET.Sdk.Razor">
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="Confirm.razor" />
+  </ItemGroup>
 
   
   <ItemGroup>
@@ -11,6 +15,18 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Confirm.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Confirm.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Confirm.razor" />
   </ItemGroup>
 
 </Project>
